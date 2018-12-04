@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: democicd
+  name: shricicd
 spec:
   replicas: 1
   strategy:
@@ -12,13 +12,13 @@ spec:
   template:
     metadata:
       labels:
-        app: democicd
+        app: shrilabelcicd
     spec:
       containers:
       - name: my-app
         image: shrikntsharma/javahometech:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8090
         resources:
           requests:
             cpu: 250m
@@ -29,10 +29,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: democicd
+  name: shricicd
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: democicd
+    app: shricicd
